@@ -26,14 +26,14 @@ const createRows = async (rowlist: { [key: string]: string }[], columns: IColumn
   return rows
 }
 
-export const contentFetchData = () => {
+export const contentFetchData = (flag?: boolean) => {
   return async (dispatch: Dispatch<ContentAction>): Promise<void> => {
     try {
       const response = await fetch('http://localhost:3001/api/content')
       const json = await response.json()
       const resColumns = await createColumns(json[0])
       const resRows = await createRows(json[1], resColumns)
-      dispatch({ type: ContentActionTypes.COLUMS_FETCH_SUCCESS, payload: resColumns })
+      if (!flag) dispatch({ type: ContentActionTypes.COLUMS_FETCH_SUCCESS, payload: resColumns })
       dispatch({ type: ContentActionTypes.ROWS_FETCH_SUCCESS, payload: resRows })
     } catch (e) {
       console.log(e)

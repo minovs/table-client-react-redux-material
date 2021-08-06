@@ -9,8 +9,9 @@ import { IColumnsList } from '../types/types'
 
 export const TableBodyComponent: FC = () => {
   const dispatch = useDispatch()
-  const handlerClick = (e: any) => dispatch(clickHandler(e))
+  const handlerClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => dispatch(clickHandler(e))
   const { colums, rows } = useTypedSelector((state) => state.content)
+
   let value: string | number
   const content = (
     <TableBody>

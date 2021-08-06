@@ -6,7 +6,8 @@ import TableRow from '@material-ui/core/TableRow'
 import { IColumnsList } from '../types/types'
 
 export const TableHeadComponent: FC = () => {
-  const { colums } = useTypedSelector((state) => state.content)
+  const colums = useTypedSelector((state) => state.content.colums)
+
   const content = (
     <TableHead>
       <TableRow>

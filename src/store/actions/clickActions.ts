@@ -28,6 +28,6 @@ export const clickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
         await visitAction('DELETE', name, classes)
       }
     }
-    dispatch(contentFetchData())
+    dispatch(contentFetchData(true))
   }
 }
