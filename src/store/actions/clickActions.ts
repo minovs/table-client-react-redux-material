@@ -4,7 +4,7 @@ import { contentFetchData } from './contentActions'
 
 const visitAction = async (method: string, name: string, classes: string) => {
   try {
-    return await fetch(`http://localhost:3001/api/visit`, {
+    return await fetch(`${process.env.REACT_APP_API_URL}/api/visit`, {
       method: method,
       body: JSON.stringify({ name, classes }),
       headers: {

@@ -29,7 +29,7 @@ const createRows = async (rowlist: { [key: string]: string }[], columns: IColumn
 export const contentFetchData = (flag?: boolean) => {
   return async (dispatch: Dispatch<ContentAction>): Promise<void> => {
     try {
-      const response = await fetch('http://localhost:3001/api/content')
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/content`)
       const json = await response.json()
       const resColumns = await createColumns(json[0])
       const resRows = await createRows(json[1], resColumns)
